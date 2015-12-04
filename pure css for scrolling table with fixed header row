@@ -1,0 +1,105 @@
+Support IE8/9/10/11, Chrome, Firefox.
+There's only a flaw in IE8/IE9 when it comes to multiple columns, the width of header is not align with the width of content.
+
+HTML sample:
+<table class="scrolling">
+    <thead>
+    <tr>
+        <th>Column1</th>
+        <th>Column2</th>
+        <th>Column3</th>
+        <th>Column4</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Content1</td>
+        <td>Content2</td>
+        <td>Content3</td>
+        <td>Content4</td>
+    </tr>
+    <tr>
+        <td>Content1</td>
+        <td>Content2</td>
+        <td>Content3</td>
+        <td>Content4</td>
+    </tr>
+    <tr>
+        <td>Content1</td>
+        <td>Content2</td>
+        <td>Content3</td>
+        <td>Content4</td>
+    </tr>
+    </tbody>
+</table>
+
+CSS codes:
+/* ======================================================
+	Style for scrolling tables
+   ======================================================*/
+table.scrolling *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+table.scrolling {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin-left: 0;
+}
+table.scrolling>thead {
+    text-align:left;
+    display: table;
+    float: left;
+    width: 100%;
+    background-color: #E6E6E6;
+    border-bottom: 1px solid #000000;
+}
+table.scrolling>thead>tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+table.scrolling>tbody {
+    display: block;
+    height: 500px;
+    overflow: auto;
+    float: left;
+    width: 100%;
+}
+/*fix for chrome horizontal scroll bar - start*/
+table.scrolling>tbody:not(*:root) {
+    padding-right: 1px;
+}
+/*fix for chrome horizontal scroll bar - end*/
+/*fix for IE10/IE11 horizontal scroll bar - start*/
+_:-ms-input-placeholder, :root table.scrolling>tbody {
+    padding-right: 1px;
+}
+/*fix for IE10/IE11 horizontal scroll bar - end*/
+table.scrolling>tbody>tr {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+table.scrolling>thead>tr>th, table.scrolling>tbody>tr>td {
+    width: 100%;
+    padding: 6pt;
+}
+table.scrolling td.defTerm{
+    width: 30%;
+}
+table.scrolling tr:after{
+    content: ".";
+    visibility: hidden;width: 0;font-size: 1px;
+}
+table.scrolling>tbody>tr>td[style]{
+    border-width:0 1px 1px 0!important;
+    word-wrap: break-word;
+}
+table.scrolling th[style]{
+    border-width: 0!important;
+}
+
+参考的这篇文档的解决方案http://stackoverflow.com/questions/16984323/table-tbody-scroll-in-ie8，做了些改进。
