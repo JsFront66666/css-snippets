@@ -1,43 +1,10 @@
-Support IE8/9/10/11, Chrome, Firefox.
-There's only a flaw in IE8/IE9 when it comes to multiple columns, the width of header is not align with the width of content.
-
-HTML sample:
-<table class="scrolling">
-    <thead>
-    <tr>
-        <th>Column1</th>
-        <th>Column2</th>
-        <th>Column3</th>
-        <th>Column4</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Content1</td>
-        <td>Content2</td>
-        <td>Content3</td>
-        <td>Content4</td>
-    </tr>
-    <tr>
-        <td>Content1</td>
-        <td>Content2</td>
-        <td>Content3</td>
-        <td>Content4</td>
-    </tr>
-    <tr>
-        <td>Content1</td>
-        <td>Content2</td>
-        <td>Content3</td>
-        <td>Content4</td>
-    </tr>
-    </tbody>
-</table>
-
-CSS codes:
+/* 
+*Reference: http://stackoverflow.com/questions/16984323/table-tbody-scroll-in-ie8, made some improvements
+*/
 /* ======================================================
 	Style for scrolling tables
    ======================================================*/
-table.scrolling *{
+   table.scrolling *{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -101,5 +68,3 @@ table.scrolling>tbody>tr>td[style]{
 table.scrolling th[style]{
     border-width: 0!important;
 }
-
-参考的这篇文档的解决方案http://stackoverflow.com/questions/16984323/table-tbody-scroll-in-ie8，做了些改进。
