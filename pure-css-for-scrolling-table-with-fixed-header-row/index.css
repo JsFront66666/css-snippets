@@ -53,6 +53,7 @@ table.scrolling>tbody>tr {
 table.scrolling>thead>tr>th, table.scrolling>tbody>tr>td {
     width: 100%;
     padding: 6pt;
+    text-align: left;
 }
 table.scrolling td.defTerm{
     width: 30%;
